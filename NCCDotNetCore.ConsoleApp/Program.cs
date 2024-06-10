@@ -46,5 +46,7 @@ Console.WriteLine("Hello, World!");
 
 
 AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
-adoDotNetExample.Read();
+//adoDotNetExample.Read();
+//adoDotNetExample.Edit(11);           
+adoDotNetExample.Create("Test1", "Author1","ContentTest");
 Console.ReadKey();
