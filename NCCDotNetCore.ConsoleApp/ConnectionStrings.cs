@@ -14,7 +14,9 @@ namespace NCCDotNetCore.ConsoleApp
             DataSource = ".",//server name
             InitialCatalog = "DotNetTrainingBatch4",//database name
             UserID = "sa",
-            Password = "sasa@123"
+            Password = "sasa@123",
+            TrustServerCertificate = true
+
         };
     }
 }

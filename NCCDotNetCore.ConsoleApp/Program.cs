@@ -44,7 +44,7 @@ using System.Data.SqlClient;
 //}
 
 
-//ado.Net Read
+//ado.Net
 //CRUD
 //AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 //adoDotNetExample.Read();
@@ -52,7 +52,11 @@ using System.Data.SqlClient;
 //adoDotNetExample.Update(2,"Test1Update", "Author1Update","ContentTestUpdate");
 //adoDotNetExample.Delete(12);
 
+//Dapper CRUDE
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Run();
 
-DapperExample dapperExample = new DapperExample();
-dapperExample.Run();
+//EFCore CRUDE
+EFCoreExample efCore = new EFCoreExample();
+efCore.Run();
 Console.ReadKey();
