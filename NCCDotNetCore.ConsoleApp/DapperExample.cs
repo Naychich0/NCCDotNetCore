@@ -19,8 +19,8 @@ namespace NCCDotNetCore.ConsoleApp
             //Edit(16);
             //Create("titleDapper", "authorDapper", "contentDapper");
             //Update(2002, "test2", "test2", "test2");
-            Delete(2002);
-
+            // Delete(2002);
+            Delete(2005);
         }
 
         private void Read()
