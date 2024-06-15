@@ -3,7 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 
 
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
 
 //npm
 //pub.dev
@@ -42,12 +42,17 @@ Console.WriteLine("Hello, World!");
    //Console.WriteLine("Blog Conect => " + row["BlogContent"]);
    //Console.WriteLine("--------------------------------");
 //}
+
+
 //ado.Net Read
-
-
-AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
+//CRUD
+//AdoDotNetExample adoDotNetExample = new AdoDotNetExample();
 //adoDotNetExample.Read();
 //adoDotNetExample.Edit(11);           
 //adoDotNetExample.Update(2,"Test1Update", "Author1Update","ContentTestUpdate");
-adoDotNetExample.Delete(12);
+//adoDotNetExample.Delete(12);
+
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
 Console.ReadKey();

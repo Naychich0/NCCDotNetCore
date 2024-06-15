@@ -38,7 +38,6 @@ namespace NCCDotNetCore.ConsoleApp
                 Console.WriteLine("--------------------------------");
             }
         }
-
         public void Edit(int id)
         {
             SqlConnection connection= new SqlConnection(stringBuilder.ConnectionString);
@@ -69,7 +68,6 @@ namespace NCCDotNetCore.ConsoleApp
             Console.WriteLine("Blog Conect => " + row["BlogContent"]);
             Console.WriteLine("--------------------------------");
         }
-
         public void Create(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
@@ -94,7 +92,6 @@ namespace NCCDotNetCore.ConsoleApp
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
         }
-
         public void Update(int id,string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
