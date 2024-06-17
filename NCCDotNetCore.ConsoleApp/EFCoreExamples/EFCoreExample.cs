@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NCCDotNetCore.ConsoleApp.Dtos;
 
-namespace NCCDotNetCore.ConsoleApp
+namespace NCCDotNetCore.ConsoleApp.EFCoreExamples
 {
     internal class EFCoreExample
     {
@@ -17,7 +18,7 @@ namespace NCCDotNetCore.ConsoleApp
             //Edit(14);
             //Create("titleEfcore", "authorEfcore", "contentEfcore");
             //Update(10, "test2", "test2", "test2");
-             Delete(2002);
+            Delete(2002);
         }
 
         private void Read()
@@ -72,7 +73,7 @@ namespace NCCDotNetCore.ConsoleApp
                 return;
             }
 
-            item.BlogTitle = title; 
+            item.BlogTitle = title;
             item.BlogAuthor = author;
             item.BlogContent = content;
 

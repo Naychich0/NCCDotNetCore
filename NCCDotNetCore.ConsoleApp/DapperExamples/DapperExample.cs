@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using Dapper;
+using NCCDotNetCore.ConsoleApp.Dtos;
+using NCCDotNetCore.ConsoleApp.Services;
 
-namespace NCCDotNetCore.ConsoleApp
+namespace NCCDotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
 
-        public void Run() 
+        public void Run()
         {
             //Read();
             //Edit(1);
@@ -76,7 +78,7 @@ namespace NCCDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        private void Update(int id,string title, string author, string content)
+        private void Update(int id, string title, string author, string content)
         {
             var item = new BlogDto
             {

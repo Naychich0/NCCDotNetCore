@@ -1,4 +1,4 @@
-﻿using NCCDotNetCore.ConsoleApp;
+﻿using NCCDotNetCore.ConsoleApp.EFCoreExamples;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -36,11 +36,11 @@ using System.Data.SqlClient;
 
 //foreach(DataRow row in dt.Rows)
 //{
- //   Console.WriteLine("Blog Id => "+ row["BlogId"]);
-   // Console.WriteLine("Blog Title => " + row["BlogTitle"]);
-   //Console.WriteLine("Blog Author => " + row["BlogAuthor"]);
-   //Console.WriteLine("Blog Conect => " + row["BlogContent"]);
-   //Console.WriteLine("--------------------------------");
+//   Console.WriteLine("Blog Id => "+ row["BlogId"]);
+// Console.WriteLine("Blog Title => " + row["BlogTitle"]);
+//Console.WriteLine("Blog Author => " + row["BlogAuthor"]);
+//Console.WriteLine("Blog Conect => " + row["BlogContent"]);
+//Console.WriteLine("--------------------------------");
 //}
 
 

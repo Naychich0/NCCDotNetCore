@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NCCDotNetCore.ConsoleApp
+namespace NCCDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     public class AdoDotNetExample
     {
@@ -40,7 +40,7 @@ namespace NCCDotNetCore.ConsoleApp
         }
         public void Edit(int id)
         {
-            SqlConnection connection= new SqlConnection(stringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
 
             string query = $@"SELECT [BlogId]
                             ,[BlogTitle]
@@ -55,13 +55,13 @@ namespace NCCDotNetCore.ConsoleApp
             adapter.Fill(dt);
             connection.Close();
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found!");
                 return;
             }
             DataRow row = dt.Rows[0];
-            
+
             Console.WriteLine("Blog Id => " + row["BlogId"]);
             Console.WriteLine("Blog Title => " + row["BlogTitle"]);
             Console.WriteLine("Blog Author => " + row["BlogAuthor"]);
@@ -92,7 +92,7 @@ namespace NCCDotNetCore.ConsoleApp
             string message = result > 0 ? "Saving Successful." : "Saving Failed.";
             Console.WriteLine(message);
         }
-        public void Update(int id,string title, string author, string content)
+        public void Update(int id, string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(stringBuilder.ConnectionString);
             connection.Open();
