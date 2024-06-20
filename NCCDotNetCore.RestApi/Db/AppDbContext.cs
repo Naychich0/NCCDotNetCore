@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NCCDotNetCore.ConsoleApp.Dtos;
 using NCCDotNetCore.RestApi.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NCCDotNetCore.RestApi.Db;
 
-internal class AppDbContext : DbContext
+public class AppDbContext : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

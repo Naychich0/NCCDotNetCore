@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NCCDotNetCore.RestApi.Db;
+using NCCDotNetCore.RestApi.Models;
 
 namespace NCCDotNetCore.RestApi.Controllers
 {
@@ -9,34 +11,95 @@ namespace NCCDotNetCore.RestApi.Controllers
     [ApiController]
     public class BlogController : ControllerBase
     {
+        private readonly AppDbContext _context;
+
+        public BlogController()
+        {
+            _context = new AppDbContext();
+        }
         [HttpGet]
         public IActionResult Read() 
         { 
-            return Ok("Read");
+            var lst = _context.Blogs.ToList();
+            return Ok(lst);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Edit(int id)
+        {
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId==id);
+            if(item is null)
+            {
+                return NotFound("No data found!");
+            }
+            return Ok(item);
         }
 
         [HttpPost]
-        public IActionResult Create()
+        public IActionResult Create(BlogModel blog)
         {
-            return Ok("Create");
+            _context.Blogs.Add(blog);
+            var result = _context.SaveChanges();
+            string message = result > 0 ? "Saving Successful." : "Saving Failed.";
+            return Ok(message);
         }
 
-        [HttpPut]
-        public IActionResult Update()
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, BlogModel blog)
         {
-            return Ok("Update");
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                return NotFound("No data found!");
+            }
+            item.BlogTitle = blog.BlogTitle;
+            item.BlogAuthor = blog.BlogAuthor;
+            item.BlogContent = blog.BlogContent;
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Updating Successful." : "Updating Failed.";
+            return Ok(message);
         }
 
-        [HttpPatch]
-        public IActionResult Patch()
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, BlogModel blog)
         {
-            return Ok("Patch");
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                return NotFound("No data found!");
+            }
+            if (!string.IsNullOrEmpty(blog.BlogTitle))
+            {
+                item.BlogTitle = blog.BlogTitle;
+            }
+            if (!string.IsNullOrEmpty(blog.BlogAuthor))
+            {
+                item.BlogAuthor = blog.BlogAuthor;
+            }
+            if (!string.IsNullOrEmpty(blog.BlogContent))
+            {
+                item.BlogContent = blog.BlogContent;
+            }
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Patching Successful." : "Patching Failed.";
+            return Ok(message);
         }
 
-        [HttpDelete]
-        public IActionResult Delete()
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            return Ok("Delete");
+            var item = _context.Blogs.FirstOrDefault(x => x.BlogId == id);
+            if (item is null)
+            {
+                return NotFound("No data found!");
+            }
+            _context.Blogs.Remove(item);
+            var result = _context.SaveChanges();
+
+            string message = result > 0 ? "Deleting Successful." : "Deleting Failed.";
+            return Ok(message);
         }
     }
 }
