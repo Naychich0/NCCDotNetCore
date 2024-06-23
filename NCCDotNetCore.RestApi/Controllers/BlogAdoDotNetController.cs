@@ -158,6 +158,7 @@ namespace NCCDotNetCore.RestApi.Controllers
             string selectQuery = "select * from tbl_blog";
 
             SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            connection.Open();
 
             SqlCommand cmd = new SqlCommand(selectQuery, connection);
             cmd.Parameters.AddWithValue("@BlogId", blog.BlogId);
@@ -168,7 +169,7 @@ namespace NCCDotNetCore.RestApi.Controllers
             var item = dt.Rows.Count;
             if (item== 0)
             {
-                return Ok("No data found to update.");
+                return Ok("No data found to patch.");
             }
 
             string conditions = string.Empty;
@@ -202,24 +203,12 @@ namespace NCCDotNetCore.RestApi.Controllers
             SqlCommand cmd2 = new SqlCommand(query, connection);
 
             cmd2.Parameters.AddWithValue("@BlogId", id);
-
-            if (blog.BlogTitle != null)
-            {
-                cmd2.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
-            }
-
-            if (blog.BlogAuthor != null)
-            {
-                cmd2.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
-            }
-
-            if (blog.BlogContent != null)
-            {
-                cmd2.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
-            }
+            cmd2.Parameters.AddWithValue("@BlogTitle", blog.BlogTitle);
+            cmd2.Parameters.AddWithValue("@BlogAuthor", blog.BlogAuthor);
+            cmd2.Parameters.AddWithValue("@BlogContent", blog.BlogContent);
 
             int result = cmd2.ExecuteNonQuery();
-
+            
             connection.Close();
 
             string message = result > 0 ? "Patching successful." : "Patching failed.";
