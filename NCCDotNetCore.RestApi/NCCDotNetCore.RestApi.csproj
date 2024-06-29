@@ -16,4 +16,8 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NCCDotNet.Shared\NCCDotNet.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

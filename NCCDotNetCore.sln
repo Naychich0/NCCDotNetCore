@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCCDotNetCore.ConsoleApp", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{9C561BE3-46F8-4274-9437-33E3246CB057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCCDotNetCore.RestApi", "NCCDotNetCore.RestApi\NCCDotNetCore.RestApi.csproj", "{7D2721D0-DDC3-4797-9108-BFEC6161E809}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCCDotNetCore.RestApi", "NCCDotNetCore.RestApi\NCCDotNetCore.RestApi.csproj", "{7D2721D0-DDC3-4797-9108-BFEC6161E809}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NCCDotNet.Shared", "NCCDotNet.Shared\NCCDotNet.Shared.csproj", "{DB03AB0A-F058-46F0-A21C-A7B934A481A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{7D2721D0-DDC3-4797-9108-BFEC6161E809}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D2721D0-DDC3-4797-9108-BFEC6161E809}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D2721D0-DDC3-4797-9108-BFEC6161E809}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB03AB0A-F058-46F0-A21C-A7B934A481A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB03AB0A-F058-46F0-A21C-A7B934A481A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB03AB0A-F058-46F0-A21C-A7B934A481A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB03AB0A-F058-46F0-A21C-A7B934A481A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
