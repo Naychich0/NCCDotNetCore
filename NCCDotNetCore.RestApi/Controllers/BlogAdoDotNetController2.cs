@@ -3,57 +3,21 @@ using Microsoft.AspNetCore.Mvc;
 using NCCDotNetCore.RestApi.Models;
 using System.Data;
 using System.Data.SqlClient;
-using System.Reflection.Metadata;
-using System.Text;
+using NCCDotNet.Shared;
 
 
 namespace NCCDotNetCore.RestApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlogAdoDotNet2Controller : ControllerBase
+    public class BlogAdoDotNetController2 : ControllerBase
     {
+        private readonly AdoDotNetService _adoDotNetService = new AdoDotNetService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         [HttpGet]
         public IActionResult GetBlogs()
         {
-            SqlConnection connection = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            connection.Open();
-
             string query = "select * from tbl_blog";
-
-            SqlCommand commond = new SqlCommand(query, connection);
-            SqlDataAdapter adapter = new SqlDataAdapter(commond);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-
-            connection.Close();
-
-            //List<BlogModel> lst = new List<BlogModel>();
-            //foreach (DataRow dr in dt.Rows)
-            //{
-            //    BlogModel blog = new BlogModel();
-            //    blog.BlogId = Convert.ToInt32(dr["BlogId"]);
-            //    blog.BlogTitle = Convert.ToString(dr["BlogTitle"]);
-            //    blog.BlogAuthor= Convert.ToString(dr["BlogAuthor"]);
-            //    blog.BlogContent = Convert.ToString(dr["BlogContent"]);
-            //}
-
-            //BlogModel blog = new BlogModel
-            //{
-            //   BlogId = Convert.ToInt32(dr["BlogId"]),
-            //    BlogTitle = Convert.ToString(dr["BlogTitle"]),
-            //    BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
-            //    BlogContent = Convert.ToString(dr["BlogContent"])
-            //};
-            //    lst.Add(blog);
-
-            List<BlogModel> lst = dt.AsEnumerable().Select(dr => new BlogModel
-            {
-                BlogId = Convert.ToInt32(dr["BlogId"]),
-                BlogTitle = Convert.ToString(dr["BlogTitle"]),
-                BlogAuthor = Convert.ToString(dr["BlogAuthor"]),
-                BlogContent = Convert.ToString(dr["BlogContent"])
-            }).ToList();
+            var lst = _adoDotNetService.Query<BlogModel>(query);
 
             return Ok(lst);
         }
